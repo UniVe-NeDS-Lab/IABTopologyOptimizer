@@ -19,7 +19,6 @@
 import json
 import os
 import random
-from termios import CSIZE
 import requests
 import time
 import networkx as nx
