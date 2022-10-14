@@ -1,0 +1,8 @@
+{
+  "types": [
+    {
+      "id": "IAB_MEASUREMENTS",
+      "dmaapTopicUrl": "/events/unauthenticated.IAB_MEASUREMENTS/users/test"
+    }
+  ]
+}

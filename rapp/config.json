@@ -1,0 +1,38 @@
+{
+  "listeners": {
+    "*:80": {
+      "pass": "routes"
+    }
+  },
+
+  "routes": [
+    {
+      "match": {
+        "uri": "/api/*",
+        "scheme": "http"
+      },
+      "action": {
+        "pass": "applications/fastapi"
+      }
+    },
+    {
+      "action": {
+        "share": "/build/static/$uri"
+      }
+    }
+  ],
+
+  "applications": {
+    "fastapi": {
+      "type": "python 3.10",
+      "path": "/build/",
+      "module": "main",
+      "callable": "app"
+    }
+  },
+
+  "access_log": {
+    "path": "/dev/stdout",
+    "format": "$remote_addr - - [$time_local] \"$request_line\" $status $body_bytes_sent \"$header_referer\" \"$header_user_agent\""
+  }
+}

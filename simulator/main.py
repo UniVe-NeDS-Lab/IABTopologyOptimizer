@@ -36,7 +36,7 @@ cqiMessage = {
         "commonEventHeader": {
             "domain": "measurements",
             "eventId": "nt:network-topology/nt:topology/nt:node/nt:node-id",
-            "eventName": "IAB.measurements",
+            "eventName": "IAB_Measurement_Report",
             "eventType": "MeasurementsReport",
             "sequence": 0,
             "priority": "Normal",
@@ -91,7 +91,7 @@ class CQISimulator():
     def report_cqi(self, src, tgt, e):
         # o_ru_id = "ERICSSON-O-RU-1122" + str(random_time)
         print(f"Sending CQI: {src} receives {tgt} with {e['pathloss']}dB")
-        msg_as_json = json.loads(json.dumps(cqiMessage))
+        msg_as_json = cqiMessage
         msg_as_json["event"]["commonEventHeader"]["sourceName"] = src
         msg_as_json["event"]["measField"]["cell"] = tgt
         msg_as_json["event"]["measField"]["rssi"] = e['pathloss']
@@ -109,7 +109,7 @@ class CQISimulator():
                             if e['delay'] > 0:
                                 self.report_cqi(src, tgt, e)
 
-            random_time = int(10 * random.random())
+            random_time = int(10)
             # if (random_time % 3 == 1):
             #     print("Sent heart beat")
             #     sendPostRequest(self.mr_url, heartBeatMessage)
@@ -125,8 +125,7 @@ class CQISimulator():
 
 def sendPostRequest(url, msg):
     try:
-        print(url)
-        requests.post(url, json=msg)
+        requests.post(url, json=msg, headers={'Content-Type': 'application/json'})
     except Exception as e:
         print(type(e))
         print(e.args)
