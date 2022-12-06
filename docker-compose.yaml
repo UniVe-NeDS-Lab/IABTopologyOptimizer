@@ -5,17 +5,17 @@ networks:
     name: nonrtric-docker-net
 
 services:
-  O1simulator:
-    container_name: o1simulator
-    image: orang/o1simulator
-    build: ./simulator/
-    networks:
-      - nonrtric_net
-    depends_on:
-      - dmaap-mr
-    environment:
-      - MR-HOST=http://dmaap-mr
-      - MR-PORT=3904
+  # O1simulator:
+  #   container_name: o1simulator
+  #   image: orang/o1simulator
+  #   build: ./simulator/
+  #   networks:
+  #     - nonrtric_net
+  #   depends_on:
+  #     - dmaap-mr
+  #   environment:
+  #     - MR-HOST=http://dmaap-mr
+  #     - MR-PORT=3904
   rapp:
     container_name: rapp
     image: orang/rapp

@@ -1,0 +1,4 @@
+[submodule "rapp/iab_manager"]
+	path = rapp/iab_manager
+	url = https://github.com/wineslab/iab-manager.git
+	branch = rapp
