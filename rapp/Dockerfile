@@ -3,9 +3,10 @@ FROM nginx/unit:1.28.0-python3.10
 RUN mkdir build
 
 COPY requirements.txt /build/requirements.txt
+COPY iab_manager/requirements.txt /build/requirements_iab.txt
 
 RUN apt update && apt install -y python3-pip                                  \
-    && pip3 install --no-cache-dir -r /build/requirements.txt -r /build/iab_manager/requirements.txt \
+    && pip3 install --no-cache-dir -r /build/requirements.txt -r /build/requirements_iab.txt \
     && apt remove -y python3-pip                                              \
     && apt autoremove --purge -y                                              \
     && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*.list
