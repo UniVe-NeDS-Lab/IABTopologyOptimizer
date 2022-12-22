@@ -1,0 +1,31 @@
+[
+  {
+    "event": {
+      "commonEventHeader": {
+        "sourceId": "",
+        "startEpochMicrosec": "@timestamp@",
+        "eventId": "nt:network-topology/nt:topology/nt:node/nt:node-id",
+        "timeZoneOffset": "+00:00",
+        "reportingEntityId": "SDNR",
+        "eventType": "MeasurementsReport",
+        "priority": "Normal",
+        "version": "4.1",
+        "nfVendorName": "ietf-hardware (RFC8348) /hardware/component[not(parent)][1]/mfg-name",
+        "reportingEntityName": "@controllerName@",
+        "sequence": 0,
+        "domain": "measurements",
+        "lastEpochMicrosec": "@timestamp@",
+        "eventName": "IAB.measurements",
+        "vesEventListenerVersion": "7.2.1",
+        "sourceName": "0_mt",
+        "nfNamingCode": ""
+      },
+      "measField": {
+        "rssi": -114.75113622739906,
+        "rsrq": 0,
+        "snr": 0,
+        "cell": "1_relay"
+      }
+    }
+  }
+]
