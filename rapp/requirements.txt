@@ -2,8 +2,3 @@ fastapi
 httpx
 asyncio
 networkx
-cryptography
-fabric
-numpy
-python-dotenv
-requests
